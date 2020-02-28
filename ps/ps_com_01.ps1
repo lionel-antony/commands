@@ -63,6 +63,8 @@ Get-Module -ListAvailable | Import-Module
 Install-Module Az 
 Update-Module Az 
 
+Find-Module AzureADPreview
+
 Get-Help <cmdlet> [-full/detailed/examples/online/showwindows]
 Get-Command -Module <module>
 Get-Command -Noun <noun>
