@@ -134,7 +134,28 @@ Get-Process | Where-Object { $_.HandleCount -gt 900 }
 Get-Process | Where-Object { $PSItem.HandleCount -gt 900 }
 Get-Process | Where-Object HandleCount -gt 900
 
+### --- PowerShell Remoting --- ###
 
+#Enable WinRM
+Enable-PSRemoting
+Get-PSSessionConfiguration
+
+#Get PC Name
+$env:COMPUTERNAME
+Invoke-Command -ComputerName lja01 { $env:COMPUTERNAME }
+
+#New Remote User Session
+New-PSSession -ComputerName lja01
+Get-PSSession
+Remove-PSSession
+
+### --- PowerShell Remoting --- ###
+
+### --- DevOPS --- ###
+
+
+
+### --- DevOPS --- ###
 
 
 
