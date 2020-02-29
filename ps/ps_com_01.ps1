@@ -32,6 +32,10 @@ Get-Command -Module <module>
 
 Get-Command -Module Hyper-V | Select -Unique Noun | Sort Noun
 
+### Module Installation ###
+Set-ExecutionPolicy RemoteSigned
+Get-ExecutionPolicy
+
 Get-Module -Name Az* -ListAvailable
 #Check to see if the module is already installed
 
