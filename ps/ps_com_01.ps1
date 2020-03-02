@@ -1,5 +1,10 @@
 $psversiontable - show version
 
+### PowerShell Update/Upgrade ###
+iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI -Preview"
+
+### End - PowerShell Update/Upgrade ###
+
 Get-Module -ListAvailable
 
 Choco outdated
