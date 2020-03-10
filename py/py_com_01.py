@@ -1,4 +1,6 @@
 # Print info
+from datetime import datetime, timedelta
+from datetime import datetime
 print('Hello World')
 
 # Getting info from the user
@@ -70,14 +72,12 @@ print(float(first_num) + float(second_num))
 ### 15 - Dates ###
 
 # To get current date and time, we need to use the datetime lib
-from datetime import datetime
 
 # the now function returns a datetime object
 current_date = datetime.now()
 print('Today is: ' + str(current_date))
 
 # function timedelta is used to define a period of time
-from datetime import datetime, timedelta
 Today = datetime.now()
 print('Today is: ' + str(Today))
 
@@ -86,15 +86,13 @@ yesterday = Today - one_day
 print('Yesterday was: ' + str(yesterday))
 
 # Use date functions to control date formatting
-from datetime import datetime
 current_date = datetime.now()
 
 print('Day: ' + str(current_date.day))
 print('Day: ' + str(current_date.month))
 print('Day: ' + str(current_date.year))
 
-# Date input is a string 
-from datetime import datetime
+# Date input is a string
 birthday = input('When is your birthday (dd/mm/yyyy)? ')
 birthday_date = datetime.strptime(birthday, '%d/%m/%Y')
 print('Birthday: ' + str(birthday_date))
@@ -105,5 +103,41 @@ print('Day before birthday: ' + str(birthday_eve))
 
 ### End - 15 - Dates ###
 
+### 17 - Error Handling ###
+
+x = 42
+y = 0
+print()
+try:
+    print(x/y)
+except ZeroDivisionError as e:
+    print('Not allowed to divide by zero')
+else:
+    print('Something else went wrong')
+finally:
+    print('This is our cleanup code')
+print()
+
+### End - 17 - Error Handling ###
+
+### 19 - Handling conditions ###
+
+if price >= 1.00:
+    tax = 0.07
+    print(tax)
+else:
+    tax = 0
+    print(tax)
+
+country = 'CANADA'
+if country.lower() == 'canada':
+    print('Oh look a Canadian')
+else:
+    print('You are not from Canada')
+
+### End - 19 - Handling conditions ###
+
+### 21 - Handling Multiple Conditions ###
 
 
+### End - 21 - Handling Multiple Conditions ###
