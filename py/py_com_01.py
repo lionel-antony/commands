@@ -66,3 +66,44 @@ second_num = input('Enter second number ')
 print((first_num) + (second_num))
 print(int(first_num) + int(second_num))
 print(float(first_num) + float(second_num))
+
+### 15 - Dates ###
+
+# To get current date and time, we need to use the datetime lib
+from datetime import datetime
+
+# the now function returns a datetime object
+current_date = datetime.now()
+print('Today is: ' + str(current_date))
+
+# function timedelta is used to define a period of time
+from datetime import datetime, timedelta
+Today = datetime.now()
+print('Today is: ' + str(Today))
+
+one_day = timedelta(days=1)
+yesterday = Today - one_day
+print('Yesterday was: ' + str(yesterday))
+
+# Use date functions to control date formatting
+from datetime import datetime
+current_date = datetime.now()
+
+print('Day: ' + str(current_date.day))
+print('Day: ' + str(current_date.month))
+print('Day: ' + str(current_date.year))
+
+# Date input is a string 
+from datetime import datetime
+birthday = input('When is your birthday (dd/mm/yyyy)? ')
+birthday_date = datetime.strptime(birthday, '%d/%m/%Y')
+print('Birthday: ' + str(birthday_date))
+one_day = timedelta(days=1)
+birthday_eve = birthday_date - one_day
+print('Day before birthday: ' + str(birthday_eve))
+
+
+### End - 15 - Dates ###
+
+
+
