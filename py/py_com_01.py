@@ -139,5 +139,64 @@ else:
 
 ### 21 - Handling Multiple Conditions ###
 
+if province == 'Alberta':
+    tax = 0.05
+elif province == 'Vancouver':
+    tax = 0.10
+elif province == 'Ontario':
+    tax = 0.15
+else:
+    tax = 0.20
+
+if province == 'Alberta' \
+   or province == 'Nunavut' :
+    tax = 0.05
+elif province == 'Vancouver':
+    tax = 0.10
+elif province == 'Ontario':
+    tax = 0.15
+else:
+    tax = 0.20
+
+if province in('Alberta', 'Yukon', 'Nunavut'):
+    tax = 0.05
+elif province == 'Vancouver':
+    tax = 0.10
+elif province == 'Ontario':
+    tax = 0.15
+else:
+    tax = 0.20
+
+if country == 'Canada':
+    if province in('Alberta', 'Yukon', 'Nunavut'): 
+        tax = 0.05
+    elif province == 'Vancouver':
+        tax = 0.10
+    elif province == 'Ontario':
+        tax = 0.15
+    else:
+        tax = 0.20
+else:
+    tax = 0.0
+
 
 ### End - 21 - Handling Multiple Conditions ###
+
+### 23 - Complex Condition Checks ###
+gpa = 0.90
+lowest_grade = 0.80
+
+if gpa >= 0.85 and lowest_grade >= 0.70:
+    print('Well Done!')
+
+###
+
+if gpa >= 0.85 and lowest_grade >= 0.70:
+    honour_roll = True
+else:
+    honour_roll = False
+
+if honour_roll:
+    print('Well Done!')
+
+### End - 23 - Complex Condition Checks ###
