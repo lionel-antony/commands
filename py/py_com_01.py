@@ -200,3 +200,62 @@ if honour_roll:
     print('Well Done!')
 
 ### End - 23 - Complex Condition Checks ###
+
+### 25 - Collections ###
+
+### Lists are a collection of items
+
+names = ['bat', 'ball']
+print(names)
+
+scores = []
+scores.append(98)  # add new item to the end of the list
+scores.append(99)
+print(scores)
+print(scores[1])
+
+# arrays are collections of items
+
+from array import array
+scores = array('d')
+scores.append(97)
+scores.append(98)
+print(scores)
+print(scores[1])
+
+# arrays - numerical data types only & must all be the same type
+# lists - stores anything any type
+
+names = ['eagle', 'kite',]
+print(len(names))
+names.insert(0, 'kingfisher')
+print(names)
+
+names.sort()
+print(names)
+
+# retrieve a range
+creatures = ['cat', 'eagle', 'kite', 'lion']
+birds = creatures[1:3]
+
+print(creatures)
+print(birds)
+
+# Dictionaries 
+person = {'first': 'cat'}
+person['last'] = 'lion'
+print(person)
+print(person['first'])
+
+# Dictionary
+#  - key/value pairs
+#  - storage order not guaranteed
+
+# List
+#  - zero-based index
+#  - storage order guaranteed
+
+
+
+### End - 25 - Collections ###
+
