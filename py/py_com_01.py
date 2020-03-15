@@ -1,4 +1,6 @@
 # Print info
+from _datetime import datetime
+import datetime
 from array import array
 from datetime import datetime, timedelta
 from datetime import datetime
@@ -256,3 +258,92 @@ print(person['first'])
 #  - storage order guaranteed
 
 ### End - 25 - Collections ###
+
+### 27 - Loops ###
+
+for name in ['chris', 'susan']:
+    print(name)
+
+for index in range(0, 2):
+    print(index)
+
+names = ['chris', 'susan']
+index = 0
+while index < len(names):
+    print(names[index])
+    index = index + 1
+
+### End - 27 - Loops ###
+
+### 29 - Functions ###
+
+# print the current time
+
+
+def print_time():
+    print('task completed')
+    print(datetime.now())
+    print()
+
+
+OR  # alternative function definition
+
+
+def print_time():
+    print('task completed')
+    print(datetime.datetime.now())
+    print()
+
+
+first_name = 'susan'
+print_time()
+
+for x in range(0, 10):
+    print_time(x)
+print_time()
+
+# pass a parameter in a function
+
+
+def print_time(task_name):
+    print(task_name)
+    print(datetime.now())
+
+
+first_name = 'susan'
+print_time('first name assigned')
+
+for x in range(0, 10):
+    print_time(x)
+print_time('loop completed')
+
+# print initial from name
+
+
+def get_initial(name):
+    initial = name[0:1].upper()
+    return initial
+
+
+first_name = input('enter your first name: ')
+first_name_initial = get_initial(first_name)
+
+last_name = input('enter your last name: ')
+last_name_initial = get_initial(last_name)
+
+print('your initials are: ' + first_name_initial + last_name_initial)
+
+# another one
+
+
+def get_initial(name):
+    initial = name[0:1].upper()
+    return initial
+
+
+first_name = input('enter first name: ')
+last_name = input('enter last name: ')
+
+print('your initials are: ' + get_initial(first_name) + get_initial(last_name))
+
+### End - 29 - Functions ###
