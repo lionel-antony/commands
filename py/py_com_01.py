@@ -1,4 +1,5 @@
 # Print info
+from array import array
 from datetime import datetime, timedelta
 from datetime import datetime
 print('Hello World')
@@ -149,7 +150,7 @@ else:
     tax = 0.20
 
 if province == 'Alberta' \
-   or province == 'Nunavut' :
+   or province == 'Nunavut':
     tax = 0.05
 elif province == 'Vancouver':
     tax = 0.10
@@ -168,7 +169,7 @@ else:
     tax = 0.20
 
 if country == 'Canada':
-    if province in('Alberta', 'Yukon', 'Nunavut'): 
+    if province in('Alberta', 'Yukon', 'Nunavut'):
         tax = 0.05
     elif province == 'Vancouver':
         tax = 0.10
@@ -203,7 +204,7 @@ if honour_roll:
 
 ### 25 - Collections ###
 
-### Lists are a collection of items
+# Lists are a collection of items
 
 names = ['bat', 'ball']
 print(names)
@@ -216,7 +217,6 @@ print(scores[1])
 
 # arrays are collections of items
 
-from array import array
 scores = array('d')
 scores.append(97)
 scores.append(98)
@@ -226,7 +226,7 @@ print(scores[1])
 # arrays - numerical data types only & must all be the same type
 # lists - stores anything any type
 
-names = ['eagle', 'kite',]
+names = ['eagle', 'kite', ]
 print(len(names))
 names.insert(0, 'kingfisher')
 print(names)
@@ -241,7 +241,7 @@ birds = creatures[1:3]
 print(creatures)
 print(birds)
 
-# Dictionaries 
+# Dictionaries
 person = {'first': 'cat'}
 person['last'] = 'lion'
 print(person)
@@ -255,7 +255,4 @@ print(person['first'])
 #  - zero-based index
 #  - storage order guaranteed
 
-
-
 ### End - 25 - Collections ###
-
