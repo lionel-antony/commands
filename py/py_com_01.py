@@ -347,3 +347,59 @@ last_name = input('enter last name: ')
 print('your initials are: ' + get_initial(first_name) + get_initial(last_name))
 
 ### End - 29 - Functions ###
+
+### 31 - Parameterized Functions ###
+
+# functions with multiple parameters
+
+def get_initial(name, force_uppercase):
+    if force_uppercase:
+        initial = name[0:1].upper()
+    else:
+        initial = name[0:1]
+    return initial
+
+first_name = input('enter your first name: ')
+first_name_initial = get_initial(first_name, False)
+
+print('your initial is: ' + first_name_initial)
+
+###
+
+def get_initial(name, force_uppercase=True):
+    if force_uppercase:
+        initial = name[0:1].upper()
+    else:
+        initial = name[0:1]
+    return initial
+
+first_name = input('enter your first name: ')
+first_name_initial = get_initial(first_name)
+
+print('your initial is: ' + first_name_initial)
+
+###
+
+# def get_initial(name, force_uppercase):
+# ...
+# first_name_initial = get_initial(force_uppercase=True, name=first_name)
+
+###
+def error_logger(error_code,
+                 error_severity,
+                 log_to_db,
+                 error_message,
+                 source_module):
+    print('oh no error: ' + error_message)
+
+first_number = 10
+second_number = 5
+if first_number > second_number:
+    error_logger(error_code=45,
+                 log_to_db=True,
+                 error_message='Second number greater than first',
+                 source_module='my math method'
+                )
+                     
+
+### End - 31 - Parameterized Functions ###
