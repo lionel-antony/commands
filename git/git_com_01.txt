@@ -1,0 +1,334 @@
+# To initialise a repo
+git init 
+git add .
+
+# Configuration
+
+# System-level Configuration
+#   C:\Program Files\Git\etc\gitconfig
+#   git config --system --list
+
+# User–level Configuration
+#   C:\User\<name>\.gitconfig
+#   git config --global --list
+
+# Repository-level Configuration
+#   Stored in .git/config in each repo
+#   git config --local –list
+  
+# Edit File
+#   git config --system --edit
+#   git config --global --edit
+#   git config --local --edit
+
+# Alias
+# Global
+git config --global alias.st status
+git config --global --list 
+
+# Repo Level Alias
+git config --local alias.st1 status
+
+# User Settings
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+
+# core.autocrlf
+#   input  – Linux
+#   true   – Cross-platform
+#   false  - 	Windows only
+
+git config --global core.autocrlf input
+
+# New Feature Branch
+
+git checkout -b feature/Job101 
+git push -u origin feature/job102
+git branch -u origin/feature/job103
+
+# Track Remote Branch
+
+# create a local branch
+git checkout -b feature/Job102 --track origin/feature/Job102
+
+# set local branch to track remote branch
+git branch --set-upstream-to feature/job104
+git branch --set-upstream-to=origin/develop develop
+
+Delete Local/Remote Branch
+
+git push --delete origin feature/job105
+git branch -D feature/job106
+git fetch --all –prune
+
+# Misc
+
+# show remote branches
+git branch –r
+
+# delete branch
+git branch –d feature/Job102
+
+git branch –vv
+git remote show origin
+
+# Git add
+
+# stages all changes
+Git add –A 	
+
+# stages new files and modifications, without deletions
+Git add .  	
+
+# stages modifications and deletions, without new files
+Git add –u 	
+
+# commit
+Git commit –m “msg” 	
+
+# automatically stage and commit
+Git commit –a –m “msg” 	
+
+# Push
+
+# update remote feature
+git push origin feature/job107
+
+#push.default set to simple
+git config --global push.default simple
+
+# Reset
+
+# unstage all files
+git reset HEAD			
+
+# unstage a file
+git reset HEAD -- doc4.txt	
+
+# Reset to Commit ID 
+git reset –soft <commit>	
+
+# Reset to Commit ID and Stage
+git reset –mixed <commit>	
+
+# Reset to Commit ID and Stage, WorkDir
+git reset –hard <commit>	
+
+# Undo last 3 commits
+git reset --hard HEAD~3		
+
+# push specific branch
+git push origin branch_name
+
+# Revert
+
+Git revert <commit>
+
+Git revert –n <commit>
+
+# Log
+
+# commits which changed a file
+git log --follow file1 		 	
+
+# list changes to a particular file
+git log –-follow –-patch file1		
+
+# commits by a specific user
+git log --author=User1			
+
+# list commits which modify string1
+git log –G string1			
+
+# To see which commits modified a file.
+git log --oneline -- src/ABCXYZEN.CBL
+
+#To see changes to a file.
+git log -p -- src/AAAAAAAA.CBL
+
+# Show the entire history of a file (including history beyond renames).
+git log --follow -p – src/AAAAAAAA.CBL
+
+git log –committer=”User 1” –since=”1 week” –until=”2 days ago”
+
+git log develop..feature
+
+# Show
+
+# show the contents of a file in a specific commit.
+git show b25e9ee653a227e3331a8ea8b3fe4faaa8e096e5 src/AAAAAAAA.CBL
+
+# Checkout
+
+# checkout a commit onto a new branch
+git checkout -b <new_branch_name> <SHA1> 	
+
+# checkout a commit in a detached HEAD state
+git checkout -b <SHA1>				
+
+# undo file changes in WorkDir
+git checkout -- <filename>			
+
+# checkout a remote branch
+git checkout origin/feature/Job102	
+
+# Obtain a specific version of a file.
+git checkout b25e9ee653a227e3331a8ea8b3fe4faaa8e096e5 src/AAAAAAAA.CBL
+
+# Checkout a specific file from a specific branch.
+git checkout origin/1.02/release/1.02.11 src/AAAAAAAA.CBL
+
+# Create a local branch and setup tracking for the remote.
+Git checkout –b feature/job101 –track origin/feature/job101
+
+# diff between WorkDir and Stage
+git diff 						
+
+# diff between staged files and current commit
+git diff –staged 					
+
+# show staged files
+git diff –cached 					
+
+# compare two commits
+Git diff dd6819..a15ec6				
+
+# compare 
+Git diff HEAD~1..HEAD				
+
+# compare the working directory with local repository
+git diff HEAD [filename]   			
+
+# compare the working directory with index
+git diff [filename]  				
+
+# compare the index with local repository
+git diff --cached [filename] 			
+
+# inline diff
+git diff –word-diff				
+
+# show 10 lines
+git diff –word-diff –unified=10		
+
+# better readability/accuracy
+git diff –patience				
+
+# diff between two commits
+git diff head~2..head –stat			
+
+# check for whitespace
+git diff –check					
+
+# compare two branches
+git diff branch1..branch2			
+
+# compare a file in two branches
+git diff branch1 branch2 ./file1.txt	
+
+# compare a file in two commits
+git diff b882470:src/AAAAAAAA.CBL d585c20:src/BBBBBBBB.CBL
+
+# compare a file in two branches
+git diff Job101:src/AAAAAAAA.CBL develop:src/BBBBBBBB.CBL						
+
+# compare a file in two branches
+git diff Job101:src/AAAAAAAA.CBL origin/develop:src/BBBBBBBB.CBL						
+
+# list of files changed between two commits
+git diff --name-only SHA1 SHA2		
+
+# list of files changed between two commits
+git diff --name-only HEAD~10 HEAD~5		
+
+#diff specific remote branches
+git diff --name-only origin/feature/job102..origin/develop
+
+git diff --name-only --cached
+
+# Stash
+Git stash save “Job101’
+
+# Retrieval
+
+Git stash apply “Job101”
+Git stash pop “Job101”
+
+# Retrieve Specific File
+
+git diff stash@{0}^1 stash@{0} -- <filename>
+git checkout stash@{0} -- <filename>
+
+# List
+
+Git stash list
+git stash show –p “Job101”
+
+# Deletion
+
+git stash drop "Job101"
+git stash clear
+
+# Delete
+
+Git rm file1
+
+# Clean
+
+# remove untracked files
+git clean -f     
+
+# remove untracked files/directories
+git clean -fd    
+
+# list all files/directories that would be removed
+git clean -nfd   
+
+# Submodule
+
+Git submodule status
+Git diff --submodule
+Git ls-tree feature/Job101
+
+# Tag
+
+# checkout a tagged release
+git co tags/v1.02.00 -b rel1_02
+
+# Clone
+
+git clone --recurse-submodules --depth 1 --branch develop <url>
+
+# clone a specific release with submodules
+git clone --recurse-submodules --depth 1 --branch <url>
+
+# Permissions
+
+#change permissions for all files/subfolders in dion
+chmodx -R 777 abcd
+
+# Remote
+
+# List the Remote repo linked to the local repo.
+Git remote –v
+
+# Link local repo to remote
+Git remote add origin <url> 
+
+# Undo
+
+# Unstages everything.
+alias gwait='git reset HEAD' 
+
+# Undoes the last commit and moves the files in the commit to staging.
+alias gundo='git reset --soft HEAD^' 
+
+# Misc
+
+#Remove locks
+rm -f .git/index.lock
+find -name "*.lock" -exec xargs rm {} \;
+
+
+
+
