@@ -28,8 +28,15 @@ Get-AzResourceGroup |`
 Where-Object { $_.Location -eq 'eastus' } | ` i
 Select-Object Location, ResourceGroupName
 
+PS D:\reposgh\commands> Get-AzResourceGroup |`
+>> Where-Object { $_.Location -eq 'eastus' } |`
+>> Select-Object Location, ResourceGroupName
 
+# Create a Resource Group
+New-AzResourceGroup -Name amdemo -Location 'North Europe'
 
+# Create a VM
+New-AzVM -ResourceGroupName amdemo -Location 
 
-
+New-AzVM -ResourceGroupName AzLion -Location 'Central India' -Name VMLion2 -Image UbuntuLTS
 
