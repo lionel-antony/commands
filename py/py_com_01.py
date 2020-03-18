@@ -403,3 +403,47 @@ if first_number > second_number:
                      
 
 ### End - 31 - Parameterized Functions ###
+
+### 33 - Modules and Packages ###
+
+# Module - Python file with functions/classes/other components
+
+# helpers.py
+def display(message, is_warning=False):
+    if is_warning:
+        print('Warning!!!')
+    print(message)
+
+# import module as namespace
+import helpers
+helpers.display('Not a warning')
+
+# import all into current namespace
+from helpers import *
+display('Not a warning')
+
+# import specific items into current namespace
+from helpers import display
+display('Not a warning').
+
+# Package - published collection of modules
+
+# Install an individual package
+pip install colorama
+
+# Install from a list of packages
+pip install -r requirements.txt
+
+# requirements.txt
+colorama
+package1
+package2
+    
+# Virtual Env
+
+# Install virtual env
+pip install virtualenv
+
+
+
+### End - 33 - Modules and Packages ###
