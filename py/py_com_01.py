@@ -1,4 +1,7 @@
 # Print info
+from helpers import display
+from helpers import *
+import helpers
 from _datetime import datetime
 import datetime
 from array import array
@@ -352,12 +355,14 @@ print('your initials are: ' + get_initial(first_name) + get_initial(last_name))
 
 # functions with multiple parameters
 
+
 def get_initial(name, force_uppercase):
     if force_uppercase:
         initial = name[0:1].upper()
     else:
         initial = name[0:1]
     return initial
+
 
 first_name = input('enter your first name: ')
 first_name_initial = get_initial(first_name, False)
@@ -366,12 +371,14 @@ print('your initial is: ' + first_name_initial)
 
 ###
 
+
 def get_initial(name, force_uppercase=True):
     if force_uppercase:
         initial = name[0:1].upper()
     else:
         initial = name[0:1]
     return initial
+
 
 first_name = input('enter your first name: ')
 first_name_initial = get_initial(first_name)
@@ -385,12 +392,15 @@ print('your initial is: ' + first_name_initial)
 # first_name_initial = get_initial(force_uppercase=True, name=first_name)
 
 ###
+
+
 def error_logger(error_code,
                  error_severity,
                  log_to_db,
                  error_message,
                  source_module):
     print('oh no error: ' + error_message)
+
 
 first_number = 10
 second_number = 5
@@ -399,8 +409,8 @@ if first_number > second_number:
                  log_to_db=True,
                  error_message='Second number greater than first',
                  source_module='my math method'
-                )
-                     
+                 )
+
 
 ### End - 31 - Parameterized Functions ###
 
@@ -414,16 +424,14 @@ def display(message, is_warning=False):
         print('Warning!!!')
     print(message)
 
+
 # import module as namespace
-import helpers
 helpers.display('Not a warning')
 
 # import all into current namespace
-from helpers import *
 display('Not a warning')
 
 # import specific items into current namespace
-from helpers import display
 display('Not a warning').
 
 # Package - published collection of modules
@@ -432,18 +440,27 @@ display('Not a warning').
 pip install colorama
 
 # Install from a list of packages
-pip install -r requirements.txt
+pip install - r requirements.txt
 
 # requirements.txt
 colorama
 package1
 package2
-    
+
 # Virtual Env
 
 # Install virtual env
 pip install virtualenv
 
+# Virtual Env
 
+python - m venv virenv
+.\venv\Scripts\activate.ps1
+pip install colorama
+# or
+pip install - r reqlist.txt
+
+# upgrade pip
+python - m pip install - -upgrade pip
 
 ### End - 33 - Modules and Packages ###
