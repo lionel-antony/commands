@@ -17,9 +17,10 @@ git add .
 #   git config --local –list
   
 # Edit File
-#   git config --system --edit
-#   git config --global --edit
-#   git config --local --edit
+git config --system --edit
+git config --global --edit
+git config --local --edit
+git config --global credential.helper cache --timeout=3600
 
 # Alias
 # Global
