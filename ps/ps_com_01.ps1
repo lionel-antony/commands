@@ -168,6 +168,14 @@ Remove-PSSession
 
 ### --- DevOPS --- ###
 
+### Microsft Graph ###
+Install-Module -Name Microsoft.Graph
+Update-Module -Name Microsoft.Graph
+Update-Module -Name Microsoft.Graph -Force
+
+
+### Microsft Graph ###
+
 
 
 
