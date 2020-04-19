@@ -42,6 +42,7 @@ docker container stop 2f25d0593c70
 
 # housekeeping
 docker system prune
+docker system prune --volumes
 
 # remove containers
 docker container rm <container_id>
@@ -216,3 +217,30 @@ docker container exec -it lionginx ping liomongo
 apt-get update
 apt-get install iputils-ping
 ### end - install ping ###
+
+### Using Containers for CLI Testing ###
+
+docker container run -it --rm --name centos centos:7 bash
+
+# inside centos
+yum update curl
+curl --version
+
+docker container run -it --name ubuntu ubuntu:14.04
+
+# inside ubuntu
+apt-get update && apt-get install curl
+curl --version
+
+### End - Using Containers for CLI Testing ###
+
+### DNS Round Robbin ###
+# Round Robbin - Multiple IP addresses point to the same hostname
+docker network create ljanet
+docker container run -d --net ljanet --net-alias search elasticsearch:2
+docker container run -d --net ljanet --net-alias search elasticsearch:2
+docker container run --rm --net ljanet alpine nslookup search
+docker container run --rm --net ljanet centos curl -s search:9200
+
+### End - DNS Round Robbin ###
+
