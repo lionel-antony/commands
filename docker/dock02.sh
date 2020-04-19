@@ -94,4 +94,19 @@ docker container port <container_id>
 docker container inspect nginx | grep -i net
 docker container inspect nginx --format '{{.NetworkSettings.IPAddress}}'
 
+# show network
+docker network ls 
+
+# inspect network
+docker network inspect
+
+# create a network
+docker network create --driver
+
+# attach a network to a container
+docker network connect
+
+# detach a network from a container
+docker network disconnect
+
 
