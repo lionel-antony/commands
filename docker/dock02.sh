@@ -65,5 +65,33 @@ docker container run --publish 80:80 --detach --name nginx nginx
 docker container run --publish 8080:80 --detach --name apache httpd
 docker container run --publish 3306:3306 --detach --name mysql mysql --env MYSQL_ROOT_PASSWORD=pwd
 
+# looking inside containers
+
+# process list in one container
+docker container top 
+
+# details of one container config 
+docker container inspect 
+
+# performance stats for all containers
+docker container stats
+
+# start new container interactively - run a terminal inside the container
+docker container run -it 
+docker container run -it --name nginx nginx bash
+docker container run -it --name ubuntu ubuntu
+
+docker container start -ai 
+docker container start -ai ubuntu
+
+# run additional commands in existing (running) containers
+# exec useful to connect to a running container
+docker container exec -it mysql 
+docker container exec -it mongo bash
+
+# networking 
+docker container port <container_id>
+docker container inspect nginx | grep -i net
+docker container inspect nginx --format '{{.NetworkSettings.IPAddress}}'
 
 
