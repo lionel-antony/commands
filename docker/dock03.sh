@@ -63,6 +63,15 @@ docker build -t webapp-color .
 # check the release
 docker run:python:3.6 cat /etc/*release*
 
+### docker compose ###
+
+# link is a command line option to link containers together
+
+
+
+
+### end - docker compose ###
+
 
 
 
