@@ -21,6 +21,15 @@ git config --system --edit
 git config --global --edit
 git config --local --edit
 git config --global credential.helper cache --timeout=3600
+git config --global http.postBuffer 500M
+git config --global http.maxRequestBuffer 100M
+git config --global core.compression 0
+
+# Settings
+Git config –global core.commitGraph true
+Git config –global gc.writecommitGraph true
+Git commit-graph write
+
 
 # Alias
 # Global
@@ -330,6 +339,8 @@ alias gundo='git reset --soft HEAD^'
 rm -f .git/index.lock
 find -name "*.lock" -exec xargs rm {} \;
 
-
+# Housekeeping
+time git -c core.commitGraph=false log --graph --oneline -10
+time git -c core.commitGraph=true log --graph --oneline -10
 
 
