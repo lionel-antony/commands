@@ -10,3 +10,10 @@ Test-ComputerSecureChannel -credential domain\admin -Repair
 ### Dangerours - turn firewall off
 Set-NetFirewallProfile -profile domain, public, private -Enabled true/false
 
+### Remote Desktop ### 
+# Login with a different ID 
+runas /noprofile /user:BLRDEVWS129\install cmd
+
+# Terminate Process 
+wmic process where name='ftrbre.exe' delete
+Stop-Process –Name “ftrBRE”

@@ -1,0 +1,3 @@
+# Launch a host running the docker engine on a VM
+docker-machine create --driver virtualbox myvm
+eval $(docker-machine env myvm)
