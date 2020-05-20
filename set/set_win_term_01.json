@@ -56,7 +56,7 @@
         "hidden": false,
         "fontFace": "Ubuntu Mono",
         "fontSize": 10,
-        "colorScheme": "UbuntuLegit"
+        "colorScheme": "Orange"
       },
       {
         "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -99,6 +99,12 @@
       "name": "Violet",
       "foreground": "#EEEEEE",
       "background": "#A427DD",
+      "cursorColor": "#FFFFFF"
+    },
+    {
+      "name": "Orange",
+      "foreground": "#EEEEEE",
+      "background": "#FF6600",
       "cursorColor": "#FFFFFF"
     },
     {
@@ -149,6 +155,22 @@
         "profile": "PowerShell 5"
       },
       "keys": "alt+shift+5"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "profile": "Command Prompt"
+      },
+      "keys": "alt+shift+c"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "profile": "Azure Cloud Shell"
+      },
+      "keys": "alt+shift+a"
     }
   ]
 }
