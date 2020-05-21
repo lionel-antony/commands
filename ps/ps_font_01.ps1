@@ -8,6 +8,7 @@ Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -Skip
 # run "notepad $PROFILE" and add these lines to the end:
 Import-Module posh-git
 Import-Module oh-my-posh
+#Set-Prompt
 Set-Theme Paradox
 
 # font face 
