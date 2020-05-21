@@ -34,9 +34,9 @@
         "name": "PowerShell 7",
         "source": "Windows.Terminal.PowershellCore",
         "hidden": false,
-        "fontFace": "Ubuntu Mono",
-        "fontSize": 10,
-        "colorScheme": "Violet"
+        "fontFace": "Cascadia Code PL",
+        "fontSize": 8,
+        "colorScheme": "Campbell Powershell"
       },
       {
         // Make changes here to the powershell.exe profile.
@@ -44,9 +44,9 @@
         "name": "PowerShell 5",
         "commandline": "powershell.exe",
         "hidden": false,
-        "fontFace": "Ubuntu Mono",
-        "fontSize": 10,
-        "colorScheme": "Pink"
+        "fontFace": "Cascadia Code PL",
+        "fontSize": 8,
+        "colorScheme": "Campbell Powershell"
       },
       {
         // Make changes here to the cmd.exe profile.
@@ -54,8 +54,8 @@
         "name": "Command Prompt",
         "commandline": "cmd.exe",
         "hidden": false,
-        "fontFace": "Ubuntu Mono",
-        "fontSize": 10,
+        "fontFace": "Cascadia Code PL",
+        "fontSize": 8,
         "colorScheme": "Orange"
       },
       {
@@ -63,8 +63,8 @@
         "name": "Azure Cloud Shell",
         "source": "Windows.Terminal.Azure",
         "hidden": false,
-        "fontFace": "Ubuntu Mono",
-        "fontSize": 10,
+        "fontFace": "Cascadia Code PL",
+        "fontSize": 8,
         "colorScheme": "UbuntuLegit"
       }
     ]
