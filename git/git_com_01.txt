@@ -93,11 +93,24 @@ Git add .
 # stages modifications and deletions, without new files
 Git add –u 	
 
+# segregate changes into separate commits
+git add -p
+
+# status
+# different options
+git status -s
+git status -sb
+
 # commit
 Git commit –m “msg” 	
 
 # automatically stage and commit
 Git commit –a –m “msg” 	
+
+# amend the previous commit
+git commit --amend
+
+# in order to include a file not included in previous commit, stage the file & run git commit --amend
 
 # Push
 
