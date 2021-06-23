@@ -1,0 +1,8 @@
+
+# version 
+wsl --list --verbose
+wsl --list --running 
+
+wsl --set-version Ubuntu 2
+
+
