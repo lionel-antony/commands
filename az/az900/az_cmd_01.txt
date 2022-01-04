@@ -1,0 +1,35 @@
+az group list 
+
+72-d63a26b0-accessing-and-using-the-azure-cloud-sh
+
+az storage account list 
+
+az vm list 
+
+# VM Creation 
+az vm create `
+>> --name LabVM `
+>> --resource-group 72-d63a26b0-accessing-and-using-the-azure-cloud-sh `
+>> --image UbuntuLTS `
+>> --admin-username azureuser `
+>> --generate-ssh-keys
+
+VM created:
+{
+  "fqdns": "",
+  "id": "/subscriptions/0f39574d-d756-48cf-b622-0e27a6943bd2/resourceGroups/72-d63a26b0-accessing-and-using-the-azure-cloud-sh/providers/Microsoft.Compute/virtualMachines/LabVM",
+  "location": "centralus",
+  "macAddress": "00-22-48-49-B9-18",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.77.68.79",
+  "resourceGroup": "72-d63a26b0-accessing-and-using-the-azure-cloud-sh",
+  "zones": ""
+}
+
+Remove-AzVM -Name LabVM -ResourceGroupName 72-d63a26b0-accessing-and-using-the-azure-cloud-sh
+
+----- ARM Templates -----
+
+
+-------------------------
