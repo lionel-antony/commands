@@ -33,3 +33,285 @@ Remove-AzVM -Name LabVM -ResourceGroupName 72-d63a26b0-accessing-and-using-the-a
 
 
 -------------------------
+
+Azure Architecture 
+
+Regions and AvZones 
+
+Latency is the time taken for data to travel from source to destination.
+
+Latency-define perimeter - time taken for data to travel from one data center to another (less than 2ms).
+Regional low-latency network - a fiber connection between data centers in the region.
+
+Region
+A region is a set of datacenters within a latency-defined perimeter and connect through a dedicated regional low-latency network.
+
+Availability zones
+Each AvZone is a physical location within a region.
+Each AvZone has its own power, cooling and networking.
+Each Region has a minimum of 3 AzZones.
+
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. Availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. With availability zones, you can design and operate applications and databases that automatically transition between zones without interruption. Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple datacenter infrastructures. Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription.
+
+How to choose a region:
+Location
+Features
+Price
+
+Paired Regions
+Each region is paired within the same geographic area with another region except Brazil South which is paired with South Central US.
+If the primary region has an outage you can failover to the secondary region.
+Only one region in a pair is updated at any one time.
+Some services use paired regions for replication.
+
+Resource Groups
+
+A resource group is a container that holds related resources for an Azure solution.
+Each resource can only exist in a single resource group.
+Resources can be added or removed from a RG at any time.
+Resources can be moved from one RG to another.
+Resources from multiple regions can be in one RG.
+Users can be given access to a RG and everything in it.
+Resources can interact with other resources in different RGs.
+A RG has a region & it stores metadata about the Resources in it.
+
+ARM
+
+Azure Resource Manager is the deployment and management service for Azure. 
+It provides a management layer that enables you to create, update, and delete resources in your Azure account. 
+You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+
+- deploy, manage & monitor resources in a group
+- deploying resources consistently  
+- define dependencies between resources
+- define access rights
+- tag resources 
+- identify billing 
+
+----- Cloud Concepts -----
+Cloud Computing is the on demand availability of compute, networking and storage resources.
+
+High Availability
+VMs can spin up fast when required
+If hardware fails, replace instantly -> Clusters
+Zero downtime not guaranteed
+
+Fault Tolerance
+  Resilience - Fault tolerance
+  Zero Down-Time - faults are mitigated
+ 
+Disaster Recovery
+  Natural Catastrophes or Cyber Attacks
+  Plan to recover business systems
+  Designated Recovery Time & Point
+
+Scalability - add/remove resources as and when needed
+  Scale out - add 
+  Scale in  - remove 
+  Scale up  - bigger 
+  Scale down - smaller 
+  
+Elasticity - quickly expand/decrease resources -> Elasticity enables scaling
+
+Agility - ability to rapidly dev/test/dep apps -> allows businesses to focus on provisioning, maintenance & analysis
+
+CapEx - money spent by a business to acquire/maintain fixed assets - land, buildings, equipment etc.
+
+OpEx - Ongoing cost of running a product, business or system - electricity, website hosting, printer cartridges etc
+
+Cloud Compueting Services moves costs from CapEx (Large Upfront Investments) to OpEx (Pay-as-you-go).
+
+Pay:
+   Per Execution
+   Per Second
+   Combo
+
+Cloud Service Models
+
+IAAS
+Infra = actual servers/VMs, Networks, Buildings
+Fast scaling
+No HW ownership
+
+PAAS
+Superset of IAAS 
+PAAS = IAAS + Middleware + Tools
+Supports Web App LifeCycle
+Avoids SW licensing issues
+
+SAAS
+SAAS = PAAS + Apps
+provides a managed service
+pay access fee
+no maintenance 
+latest features
+
+e.g MS 365
+
+Serverless
+Azure Functions
+Extreme PAAS
+
+Shared Responsibility Model
+
+Azure Marketplace
+
+Cloud Architecture Model
+Private
+Pros
+  - complete control of infra
+  - benefits of public cloud
+  - better security n privacy
+
+Cons
+  - maintenance
+  - staffing
+
+Public
+Pros
+  - no HW purchase
+  - low monthly fees
+
+Cons
+  - no control over features/version
+  - no physical access
+
+Hybrid
+Pros
+  - avoid disruptions/outages
+  - adhere to regulations/governance
+  - span both pub/priv cloud
+  - alleviate CapEx investments
+
+Cons
+  - complex infra
+
+-------- Azure Architecture ---------
+
+Region 
+A region is a set of datacenters deployed within a latency-defined perimeter and connected thru a dedicated low-latency network.
+
+Choosing a Region 
+Location
+Features
+Price
+
+Paired Regions
+Outage Failover - move from pri to sec region
+Planned Updates
+Replication
+
+AvZones
+Unique physical region - min 3 zones
+
+-------------------------------------
+
+------ Compute -------
+
+Any service that enables computation
+
+VMs
+A VM is your machine exclusively.
+No HW ownership.
+VMs are an IaaS offering - u r responsible for the entire machine.
+Az VMs take advantage of Az tools.
+Pricing goes up as resources go up and u pay by the hours.
+
+Scale Sets
+A group of identical, load balanced VMs.
+ScSets are identical VMs which can be activated/deactivated as needed.
+A baseline VM is used to create VMs.
+Pay as u use.
+
+Multiple VMs -easy management using a load balancer
+HiAv - If one VM fails, the others in the ScSet takeover.
+Auto Scaling - Auto match demand by +/- VMs from the ScSet.
+Large Scale - Run upto 1000 VMs in a single ScSet.
+No extra cost.
+
+App Services
+Fully managed platform
+
+Azure Container Service
+servres, network and storage are managed by Az.
+Businesses focus on Logic/Bus value.
+
+App services are a PaaS offering on Az
+Web Apps - web sites
+Web Apps for Containers
+API Apps - data backend services
+
+Az Container Instances
+Manage App Dependencies
+Less overhead
+Increased portability
+Efficiency
+Consistency
+
+Primary Az service for running container workloads - process/app
+Use containerized apps to process data on demand - create containers only when needed
+Use Az Portal/CLI/Powershell to work with containers
+
+Az Kub Service
+Kub is an open-source container orchestration system for auto app dep scale & mgmt.
+
+Az Container Registry
+
+Azure Virtual Desktop
+
+Functions
+smallest compute service on Az
+a single function of compute
+invoked via URL
+runs once and stops
+
+runs only when there is data to process
+saves money
+resilience
+
+----------------------
+Networking
+
+VNet
+Address Space - a range of IP addresses available for a VNet
+Subnet 
+  - segment VNet into smaller unites for secure and logical distribution of resources
+  - group resources onto the same subnet to keep an overview
+  - more efficient to allocate addresses to resources on a smaller subnet
+  - use network sec groups to secure individual subnets
+
+A Vnet belongs to a single region. Each resource on on the VNet must be in the same region.
+A VNet belongs to just one subscription. One SubSc can have multiple VNets.
+
+Scaling   - adding more VNets or more addresses to one is simple.
+HiAv      - peering VNets using LoadBal/VPNGate increases HiAv.
+Isolation - manage/org resources with subnets & netsec groups.
+
+VNet Peering 
+Connects 2 or more VNets in Azure
+Traffic between VMs in a peered VNet passes thru the private Microsoft backbone net and not the public internet.
+
+Peering Benefits
+Low Latency High BW - resources in VNets are connected with a low-lat hi-BW connection.
+Link Separate Nets  - resources in separate VNets can communicate with each other.
+Data Transfer       - transfer data easily between subscriptions & deployment models in separate regions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
