@@ -1,0 +1,2 @@
+# WSL Installation
+wsl --install 
