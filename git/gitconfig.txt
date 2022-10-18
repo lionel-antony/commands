@@ -1,0 +1,109 @@
+[core]
+	autocrlf = input
+	excludesfile = C:\\Users\\antonyl\\Documents\\gitignore_global.txt
+	autcrlf = input
+	complression = 0
+[user]
+	name = Lionel Antony
+	email = antonyl@frontiersoftware.co.in
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = true
+[alias]
+	unstage = reset HEAD --
+        unwork = checkout --
+
+        logo = log --oneline
+	logm = git log --merge --name-only
+	logc = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(cyan)%s%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	logh = log --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset | %C(yellow)%s%Creset%C(cyan)%d%Creset [%C(bold blue)%an%Creset]' --graph --date=short
+        logd = log --pretty='%Cred%h%Creset | %Cgreen%d%Creset %C(yellow)%s%Creset (%C(cyan)%cr%Creset) [%C(bold blue)%an%Creset]'
+        logf = log --follow --pretty='%Cred%h%Creset | %Cgreen%d%Creset %C(yellow)%s%Creset (%C(cyan)%cr%Creset) [%C(bold blue)%an%Creset]'
+
+        showo = show --pretty='parent %Cred%p%Creset commit %Cred%h%Creset%C(yellow)%d%Creset%n%n%w(72,2,2)%s%n%n%w(72,0,0)%C(cyan)%an%Creset %Cgreen%ar%Creset'
+        shownopat = show --no-patch
+
+	diffs = diff --staged
+	diffw = diff --check
+
+	fsckdan = fsck --dangling --no-progress
+	fsckdan = fsck --unreachable --no-progress
+
+	puc = push --recurse-submodules=check
+	pushall = push --recurse-submodules=on-demand
+	filtree = filter-branch --tree-filter
+	filind = filter-branch --index-filter
+	filemp = filter-branch -f --prune-empty -- --all
+	stashind = stash --keep-index
+	type = cat-file -t
+	dump = cat-file -p
+	last = log -1 HEAD
+	stashutr = stash --include-untracked
+	sdiff = !git diff && git submodule foreach 'git diff'
+	spush = push --recurse-submodules=on-demand
+	supdate = submodule update --remote --merge
+	sstat = submodule status
+	sdiffsub = diff --submodule
+	crmas = checkout -b master
+	crdev = checkout -b develop
+	mas = checkout master
+	dev = checkout develop
+	fea = checkout feature/
+	spull = !git pull && git submodule update --init --recursive
+	J32852 = checkout feature/Job32852
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	append = !git cherry-pick $(git merge-base HEAD $1)..$1
+	mgbase = git merge-base HEAD MERGE_HEAD
+	threeway = checkout --conflict=diff3
+	theirs = checkout --theirs
+	ours = checkout --ours
+	dangle = fsck --dangling --no-progress
+	unreach = fsck --unreachable --no-progress
+	tagcom = show-ref --tags -d
+    showfiles= show --pretty="format:" --name-only
+	diffname = diff --name-only
+	com = checkout -b master --track origin/master
+	cod = checkout -b develop --track origin/develop
+[rerere]
+	enabled = 1
+[submodule]
+	recurse = true
+[diff]
+	submodule = log
+	tool = kdiff3 
+	guitool = kdiff3
+[merge]
+	tool = kdiff3
+[status]
+	submoduleSummary = true
+[push]
+	recurseSubmodules = check
+[credential]
+	helper = store
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = false
+[difftool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = false
+[help]
+	autocorrect = 1
+[gc]
+	writecommitGraph = true
+[http]
+	postBuffer = 500M
+	maxRequestBuffer = 100M
+[gui]
+	recentrepo = D:/reposaz/atl2
