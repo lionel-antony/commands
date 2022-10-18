@@ -79,43 +79,6 @@ Test-WSMan RemoteDeviceName -Authentication Negotiate -Credential $credential
 #verify local device is listening on WinRM port
 Get-NetTCPConnection -LocalPort 5985
 
-#verify a remote device is listening on WinRM port
-Test-NetConnection -Computername 192.168.34.13 -Port 5985
-
-#establish an interactive remote session
-$credential = Get-Credential
-Enter-PSSession -ComputerName RemoteDeviceName -Credential $credential
-
-#basic session opened to remote device
-$session = New-PSSession -ComputerName RemoteDeviceName -Credential domain\user
-
-#session opened to device over SSL
-$credential = Get-Credential
-$sessionHTTPS = New-PSSession -ComputerName RemoteDeviceName -Credential $credential -UseSSL
-
-#establish sessions to multiple devices
-$credential = Get-Credential
-$multiSession = New-PSSession -ComputerName RemoteDeviceName1, RemoteDeviceName2, RemoteDeviceName3 -Credential $credential
-
-#establish session to an entire list of devices
-$devices = Get-Content -Path C:\listOfServers.txt
-$credential = Get-Credential
-$multiSession = New-PSSession -ComputerName $devices -Credential $credential
-
-#session opened with advanced session options configured
-$sessionOptions = New-PSSessionOption -SkipCNCheck -SkipCACheck -SkipRevocationCheck
-$advancedSession = New-PSSession -ComputerName 10.0.3.27 -Credential user -UseSSL -SessionOption $so
-
-#endRegion
-
-#region Invoke-Command examples
-
-#get the number of CPUs for each remote device
-Invoke-Command -Session $sessions -ScriptBlock { (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors }
-
-#get the amount of RAM for each remote device
-Invoke-Command -Session $sessions -ScriptBlock { Get-CimInstance Win32_OperatingSystem | Measure-Object -Property TotalVisibleMemorySize -Sum | ForEach-Object { [Math]::Round($_.sum / 1024 / 1024) } }
-
 #get the amount of free space on the C: drive for each remote device
 Invoke-Command -Session $sessions -ScriptBlock {
     $driveData = Get-PSDrive C | Select-Object Used, Free
